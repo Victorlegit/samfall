@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+
+  --color-brand-primary: #0A2E24;
+  --color-brand-accent: #D4AF37;
+  --color-brand-bg: #FDFCFB;
+  --color-brand-border: #EEECE9;
+  --color-brand-whatsapp: #25D366;
+  
+  @keyframes pan-slow {
+    0% { transform: scale(1.5) translateX(-5%); }
+    50% { transform: scale(1.5) translateX(5%); }
+    100% { transform: scale(1.5) translateX(-5%); }
+  }
+
+  @keyframes slide-up {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes scale-in {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-[#1A1A1A] font-sans antialiased;
+  }
+}
+
+.selection-gold::selection {
+  background-color: #D4AF37;
+  color: white;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
