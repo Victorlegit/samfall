@@ -45,7 +45,7 @@ import { format } from "date-fns";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 
-const APP_NAME = "Samfall";
+const APP_NAME = "Samfall Estate";
 const WHATSAPP_LINK = "https://wa.me/2348000000000"; // Placeholder
 
 const RecentAcquisitionTicker = () => {
