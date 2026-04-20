@@ -436,48 +436,44 @@ const PropertySearch = () => {
   const [priceRange, setPriceRange] = useState("");
 
   return (
-    <div className="relative z-30 -mt-12 px-6 md:px-12 max-w-5xl mx-auto">
+    <div className="relative z-30 -mt-24 px-4 md:px-0 max-w-5xl mx-auto w-full mb-16">
       <motion.div 
         initial={{ y: 20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
-        className="bg-white/90 backdrop-blur-3xl border border-white/40 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] p-2 md:p-3 flex flex-col md:flex-row items-stretch gap-2 transition-all hover:bg-white"
+        className="bg-white rounded-xl shadow-xl p-4 md:p-6 flex flex-col md:flex-row items-center gap-4 border border-brand-border"
       >
-        <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-2">
+        <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
           {/* Location */}
-          <div className="group relative flex items-center px-6 py-4 border border-transparent hover:border-brand-accent/20 transition-all rounded-xs">
-            <MapPin size={18} className="text-brand-accent mr-4 shrink-0 transition-transform group-hover:scale-110" />
-            <div className="flex-1">
-              <p className="text-[8px] font-black uppercase tracking-[0.2em] text-brand-accent mb-1 leading-none">Market Zone</p>
-              <select className="appearance-none bg-transparent w-full text-xs font-bold text-brand-primary focus:outline-none cursor-pointer uppercase tracking-widest">
-                <option>All of Akure</option>
+          <div className="w-full">
+            <label className="text-xs font-bold text-brand-primary/60 uppercase tracking-wider mb-2 block pl-1">Location</label>
+            <div className="relative bg-[#f4f7f6] rounded-md transition-all focus-within:ring-2 focus-within:ring-brand-accent/30 border border-transparent hover:border-brand-border">
+              <MapPin size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-brand-accent pointer-events-none" />
+              <select className="appearance-none bg-transparent w-full py-3.5 pl-12 pr-4 text-[15px] font-semibold text-brand-primary focus:outline-none cursor-pointer">
+                <option>All Locations</option>
                 {locations.map(loc => <option key={loc}>{loc}</option>)}
               </select>
             </div>
           </div>
 
-          <div className="hidden md:block w-px h-8 bg-brand-border self-center"></div>
-
           {/* Type */}
-          <div className="group relative flex items-center px-6 py-4 border border-transparent hover:border-brand-accent/20 transition-all rounded-xs">
-            <Home size={18} className="text-brand-accent mr-4 shrink-0 transition-transform group-hover:scale-110" />
-            <div className="flex-1">
-              <p className="text-[8px] font-black uppercase tracking-[0.2em] text-brand-accent mb-1 leading-none">Asset Category</p>
-              <select className="appearance-none bg-transparent w-full text-xs font-bold text-brand-primary focus:outline-none cursor-pointer uppercase tracking-widest">
+          <div className="w-full">
+             <label className="text-xs font-bold text-brand-primary/60 uppercase tracking-wider mb-2 block pl-1">Property Type</label>
+             <div className="relative bg-[#f4f7f6] rounded-md transition-all focus-within:ring-2 focus-within:ring-brand-accent/30 border border-transparent hover:border-brand-border">
+              <Home size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-brand-accent pointer-events-none" />
+              <select className="appearance-none bg-transparent w-full py-3.5 pl-12 pr-4 text-[15px] font-semibold text-brand-primary focus:outline-none cursor-pointer">
                 <option>All Types</option>
                 {propertyTypes.map(type => <option key={type}>{type}</option>)}
               </select>
             </div>
           </div>
 
-          <div className="hidden md:block w-px h-8 bg-brand-border self-center"></div>
-
           {/* Budget */}
-          <div className="group relative flex items-center px-6 py-4 border border-transparent hover:border-brand-accent/20 transition-all rounded-xs">
-            <SlidersHorizontal size={18} className="text-brand-accent mr-4 shrink-0 transition-transform group-hover:scale-110" />
-            <div className="flex-1">
-              <p className="text-[8px] font-black uppercase tracking-[0.2em] text-brand-accent mb-1 leading-none">Pricing Ceiling</p>
-              <select className="appearance-none bg-transparent w-full text-xs font-bold text-brand-primary focus:outline-none cursor-pointer uppercase tracking-widest">
+          <div className="w-full">
+             <label className="text-xs font-bold text-brand-primary/60 uppercase tracking-wider mb-2 block pl-1">Budget</label>
+             <div className="relative bg-[#f4f7f6] rounded-md transition-all focus-within:ring-2 focus-within:ring-brand-accent/30 border border-transparent hover:border-brand-border">
+              <SlidersHorizontal size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-brand-accent pointer-events-none" />
+              <select className="appearance-none bg-transparent w-full py-3.5 pl-12 pr-4 text-[15px] font-semibold text-brand-primary focus:outline-none cursor-pointer">
                 <option>Any Budget</option>
                 <option>Under ₦5M</option>
                 <option>₦5M - ₦10M</option>
@@ -488,9 +484,8 @@ const PropertySearch = () => {
           </div>
         </div>
 
-        <button className="bg-brand-primary text-brand-accent px-10 py-5 md:py-0 flex items-center justify-center gap-3 group/search transition-all hover:brightness-110">
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Filter Assets</span>
-          <ArrowRight size={16} className="group-hover/search:translate-x-2 transition-transform" />
+        <button className="w-full md:w-auto mt-7 md:mt-7 bg-brand-accent text-white px-8 py-3.5 rounded-md font-bold flex items-center justify-center gap-2 hover:bg-[#20A960] transition-colors shadow-lg">
+          Search
         </button>
       </motion.div>
     </div>
@@ -504,15 +499,15 @@ const testimonials = [
     text: "I was worried about buying land from Lagos, but Samfall made the process transparent. My C of O at Oda Road was handled professionally and delivered exactly on time.",
     location: "Bought at Oda Road",
     videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    posterUrl: "https://picsum.photos/seed/yemi/800/1000"
+    posterUrl: "https://picsum.photos/seed/yemi/800/800"
   },
   {
     name: "Prof. Mrs. Bankole",
-    role: "University Lecturer (FUTA)",
+    role: "University Lecturer",
     text: "As an academic, I value precision and verification. Samfall's survey process is unmatched in Akure. I secured two plots near the university without a single omo-onile issue.",
     location: "Invested near FUTA/Ilesha Rd",
     videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    posterUrl: "https://picsum.photos/seed/bankole/800/1000"
+    posterUrl: "https://picsum.photos/seed/bankole/800/800"
   },
   {
     name: "Tunde O.",
@@ -520,148 +515,69 @@ const testimonials = [
     text: "Investing back home in Ondo State used to be a nightmare of rumors and scams. Samfall provided live drone footage and Ministry-verified paperwork for my Alagbaka acquisition.",
     location: "Alagbaka Extension",
     videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    posterUrl: "https://picsum.photos/seed/tunde/800/1000"
+    posterUrl: "https://picsum.photos/seed/tunde/800/800"
   }
 ];
 
-const TestimonialSlider = () => {
-  const [current, setCurrent] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] }) => {
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
-    if (isPaused || (!isMuted)) return;
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % testimonials.length);
-    }, 8000);
-    return () => clearInterval(timer);
-  }, [isPaused, isMuted]);
-
-  useEffect(() => {
-    setIsMuted(true);
-  }, [current]);
-
   const toggleMute = () => {
-     if (videoRef.current) {
-         videoRef.current.muted = !videoRef.current.muted;
-         setIsMuted(videoRef.current.muted);
-     }
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
   };
 
-  const next = () => setCurrent((prev) => (prev + 1) % testimonials.length);
-  const prev = () => setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-
   return (
-    <section className="bg-brand-bg py-32 px-6 md:px-12 relative overflow-hidden" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
-      <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-        
-        {/* Left Side: Video */}
-        <div className="w-full lg:w-5/12 relative">
-          <AnimatePresence mode="wait">
-             <motion.div
-               key={current}
-               initial={{ opacity: 0, scale: 0.95 }}
-               animate={{ opacity: 1, scale: 1 }}
-               exit={{ opacity: 0, scale: 1.05 }}
-               transition={{ duration: 0.8 }}
-               onClick={toggleMute}
-               className="relative aspect-[4/5] overflow-hidden shadow-2xl bg-brand-primary cursor-pointer group"
-             >
-                <video 
-                   ref={videoRef}
-                   src={testimonials[current].videoUrl}
-                   poster={testimonials[current].posterUrl}
-                   autoPlay 
-                   loop 
-                   muted={isMuted} 
-                   playsInline
-                   className={`w-full h-full object-cover transition-all duration-1000 ${isMuted ? 'grayscale-[0.5] opacity-80 group-hover:scale-105' : 'grayscale-0 opacity-100'}`}
-                />
-                
-                {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/90 via-black/20 gap-0 z-10 opacity-80"></div>
-                
-                <div className="absolute bottom-8 left-8 right-8 z-20 flex justify-between items-end">
-                   <div>
-                     <p className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-accent mb-2">Client Story</p>
-                     <h4 className="font-serif text-3xl italic text-white leading-none">{testimonials[current].name}</h4>
-                   </div>
-                   
-                   <button 
-                     onClick={(e) => { e.stopPropagation(); toggleMute(); }}
-                     className="w-14 h-14 rounded-full bg-brand-accent text-brand-primary flex flex-col items-center justify-center hover:scale-110 transition-transform shadow-lg group relative z-30 cursor-pointer"
-                   >
-                     {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
-                   </button>
-                </div>
-                
-                {isMuted && (
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
-                     <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 flex items-center gap-3 rounded-full shadow-[0_0_40px_rgba(212,175,55,0.2)]">
-                        <PlayCircle size={16} className="text-brand-accent animate-pulse" /> 
-                        <span className="uppercase tracking-[0.2em] text-[10px] font-black">Watch Story</span>
-                     </div>
-                  </div>
-                )}
-             </motion.div>
-          </AnimatePresence>
-          
-          <div className="absolute -z-10 -bottom-8 -left-8 w-[200px] h-[200px] bg-brand-accent opacity-20 blur-3xl"></div>
+    <div className="bg-white rounded-xl shadow-lg border border-brand-border overflow-hidden flex flex-col hover:-translate-y-2 transition-transform duration-300">
+      <div className="relative aspect-video bg-gray-100 group cursor-pointer" onClick={toggleMute}>
+        <video 
+           ref={videoRef}
+           src={testimonial.videoUrl}
+           poster={testimonial.posterUrl}
+           autoPlay 
+           loop 
+           muted 
+           playsInline
+           className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">
+           <button className="bg-brand-accent text-white p-4 rounded-full shadow-lg transform scale-90 group-hover:scale-100 transition-all">
+             {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+           </button>
         </div>
-        
-        {/* Right Side: Text */}
-        <div className="w-full lg:w-7/12 relative">
-          <div className="mb-12">
-             <Quote size={48} className="text-brand-accent/30 mb-8 transform -scale-x-100" />
-             <h2 className="font-serif text-5xl md:text-6xl text-brand-primary leading-[1.1] italic">
-               Voices of our <br />
-               <span className="font-bold not-italic">Global Partners.</span>
-             </h2>
-          </div>
-        
-          <div className="min-h-[200px]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={current}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-              >
-                <p className="text-xl md:text-2xl text-gray-600 italic font-medium leading-[1.8] mb-10">
-                  "{testimonials[current].text}"
-                </p>
-                <div className="flex flex-col">
-                  <p className="text-brand-primary text-[11px] font-black uppercase tracking-[0.3em] mb-3">{testimonials[current].role}</p>
-                  <div className="inline-flex items-center gap-2 border border-brand-border px-4 py-2 self-start rounded-xs bg-white text-gray-500 shadow-sm">
-                    <MapPin size={12} className="text-brand-accent" />
-                    <span className="text-[9px] font-bold uppercase tracking-widest">{testimonials[current].location}</span>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-          
-          <div className="flex items-center gap-6 mt-16 pt-8 border-t border-brand-border">
-            <button onClick={prev} className="w-12 h-12 border border-brand-primary/20 rounded-full flex items-center justify-center text-brand-primary hover:bg-brand-primary hover:text-brand-accent transition-all">
-              <ChevronLeft size={20} />
-            </button>
-            <div className="flex gap-4">
-              {testimonials.map((_, i) => (
-                <button 
-                  key={i} 
-                  onClick={() => setCurrent(i)}
-                  className={`h-1.5 transition-all duration-500 rounded-full ${current === i ? "w-10 bg-brand-accent" : "w-3 bg-brand-border hover:bg-brand-primary/30"}`}
-                />
-              ))}
-            </div>
-            <button onClick={next} className="w-12 h-12 border border-brand-primary/20 rounded-full flex items-center justify-center text-brand-primary hover:bg-brand-primary hover:text-brand-accent transition-all">
-              <ChevronRight size={20} />
-            </button>
-          </div>
-        </div>
+        {isMuted && (
+           <div className="absolute top-4 left-4 bg-[#152230]/80 backdrop-blur-sm text-white px-3 py-1.5 text-xs font-bold rounded-md flex items-center gap-2">
+             <PlayCircle size={14} className="text-brand-accent"/> Click to Unmute
+           </div>
+        )}
+      </div>
+      <div className="p-6 md:p-8 flex-1 flex flex-col">
+         <Quote size={32} className="text-brand-accent/20 mb-4 transform -scale-x-100" />
+         <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6 italic">"{testimonial.text}"</p>
+         <div className="mt-auto border-t border-brand-border pt-4">
+            <p className="font-bold text-brand-primary text-lg">{testimonial.name}</p>
+            <p className="text-brand-accent text-sm font-semibold">{testimonial.role}</p>
+            <p className="text-gray-400 text-xs mt-1 flex items-center gap-1"><MapPin size={12}/> {testimonial.location}</p>
+         </div>
+      </div>
+    </div>
+  );
+};
 
+const TestimonialSection = () => {
+  return (
+    <section className="bg-white py-24 px-6 md:px-12 border-t border-brand-border">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <p className="text-brand-accent font-bold text-sm uppercase tracking-wider mb-2">Verified Success</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-primary">Voices of our Global Partners</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+           {testimonials.map((t, i) => <TestimonialCard key={i} testimonial={t} />)}
+        </div>
       </div>
     </section>
   );
@@ -671,46 +587,32 @@ const Nav = ({ onOpenScheduler }: { onOpenScheduler: () => void }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-brand-border px-8 md:px-16 py-5 flex justify-between items-center transition-all">
-      <div className="flex items-center gap-4">
-        <div className="w-11 h-11 bg-brand-primary flex items-center justify-center rounded-xs overflow-hidden transform hover:rotate-3 transition-transform">
-          <span className="text-brand-accent font-serif text-2xl font-black italic">S</span>
+    <nav className="absolute top-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-brand-border px-6 md:px-12 py-4 flex justify-between items-center transition-all">
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 bg-brand-accent flex items-center justify-center rounded-lg text-white font-bold">
+          <Home size={24} />
         </div>
         <div className="hidden sm:block">
-          <h1 className="text-sm font-black tracking-[0.2em] uppercase leading-none text-brand-primary">{APP_NAME}</h1>
-          <p className="text-[8px] tracking-[0.4em] uppercase text-brand-accent mt-1.5 font-bold">Estate Consultant</p>
+          <h1 className="text-xl font-bold text-brand-primary leading-none tracking-tight">{APP_NAME}</h1>
         </div>
       </div>
 
-      <div className="hidden lg:flex items-center gap-12 text-[10px] font-black uppercase tracking-[0.2em] text-brand-primary/60">
-        <a href="#" className="text-brand-primary relative group">
-          Introduction
-          <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-brand-accent origin-left scale-x-100 transition-transform"></span>
-        </a>
-        <a href="#listings" className="hover:text-brand-primary transition-colors relative group">
-          Collection
-          <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-brand-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform"></span>
-        </a>
-        <a href="#process" className="hover:text-brand-primary transition-colors relative group">
-          The Shield
-          <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-brand-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform"></span>
-        </a>
-        <a href="#contact" className="hover:text-brand-primary transition-colors relative group">
-          Contact
-          <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-brand-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform"></span>
-        </a>
+      <div className="hidden lg:flex items-center gap-8 text-[15px] font-semibold text-[#424d5c]">
+        <a href="#" className="text-brand-accent transition-colors">Home</a>
+        <a href="#listings" className="hover:text-brand-accent transition-colors">Properties</a>
+        <a href="#process" className="hover:text-brand-accent transition-colors">Verification</a>
+        <a href="#contact" className="hover:text-brand-accent transition-colors">Contact</a>
       </div>
 
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-4">
         <button 
           onClick={onOpenScheduler}
-          className="hidden md:block group relative px-8 py-3.5 overflow-hidden border border-brand-primary"
+          className="hidden md:flex items-center justify-center bg-brand-accent text-white px-6 py-2.5 rounded-full font-bold shadow-lg hover:shadow-xl hover:bg-[#20A960] transition-all"
         >
-          <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.25em] text-brand-primary group-hover:text-white transition-colors">Book Inspection</span>
-          <div className="absolute inset-0 bg-brand-primary translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+          Book Inspection
         </button>
         <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden text-brand-primary p-2">
-          {isOpen ? <X size={22} /> : <Menu size={22} />}
+          {isOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
@@ -720,15 +622,15 @@ const Nav = ({ onOpenScheduler }: { onOpenScheduler: () => void }) => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-white border-b border-brand-border flex flex-col p-8 gap-6 lg:hidden shadow-2xl"
+            className="absolute top-full left-0 w-full bg-white border-b border-brand-border flex flex-col p-6 gap-4 lg:hidden shadow-xl"
           >
-            <a href="#" className="font-black text-sm uppercase tracking-widest text-brand-primary">Introduction</a>
-            <a href="#listings" className="font-black text-sm uppercase tracking-widest text-brand-primary">Collection</a>
-            <a href="#process" className="font-black text-sm uppercase tracking-widest text-brand-primary">The Shield</a>
-            <a href="#contact" className="font-black text-sm uppercase tracking-widest text-brand-primary">Contact</a>
+            <a href="#" className="font-semibold text-brand-primary hover:text-brand-accent">Home</a>
+            <a href="#listings" className="font-semibold text-brand-primary hover:text-brand-accent">Properties</a>
+            <a href="#process" className="font-semibold text-brand-primary hover:text-brand-accent">Verification</a>
+            <a href="#contact" className="font-semibold text-brand-primary hover:text-brand-accent">Contact</a>
             <button 
               onClick={() => { onOpenScheduler(); setIsOpen(false); }}
-              className="bg-brand-primary text-brand-accent py-5 text-sm font-black uppercase tracking-widest mt-4"
+              className="bg-brand-accent text-white py-3 rounded-md font-bold mt-2"
             >
               Book Inspection
             </button>
@@ -741,126 +643,34 @@ const Nav = ({ onOpenScheduler }: { onOpenScheduler: () => void }) => {
 
 const Hero = ({ onOpenScheduler }: { onOpenScheduler: () => void }) => {
   return (
-    <section className="relative min-h-[90vh] flex flex-col overflow-hidden bg-brand-bg">
-      <div className="flex-1 flex flex-col lg:flex-row items-stretch">
-        {/* Left Side: Content */}
-        <div className="w-full lg:w-1/2 p-8 md:p-16 lg:p-24 flex flex-col justify-center relative z-10 bg-brand-bg">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-flex items-center gap-4 mb-10 overflow-hidden">
-              <span className="w-16 h-[1px] bg-brand-accent"></span>
-              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-accent">A Legacy Vetted by Experts</span>
-            </div>
-            
-            <h2 className="font-serif text-6xl md:text-8xl leading-[0.95] font-light mb-12 relative">
-              Secure the <br />
-              <span className="italic font-bold text-brand-primary">Golden Acre</span> <br />
-              of Akure.
-            </h2>
-            
-            <p className="text-gray-500 text-lg md:text-xl leading-relaxed max-w-lg mb-16 font-medium italic">
-              Experience a new tier of real estate consultancy. We offer pre-verified, high-yield land assets for investors who value security above all.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-8">
-              <button 
-                onClick={onOpenScheduler}
-                className="bg-brand-primary text-brand-accent px-10 py-6 text-xs font-black uppercase tracking-[0.2em] shadow-2xl hover:scale-105 transition-transform group"
-              >
-                Inquire & Book Inspection
-              </button>
-              <div className="flex items-center gap-5">
-                <div className="flex -space-x-3">
-                  {[1, 2, 3].map(i => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-brand-bg bg-brand-border overflow-hidden">
-                      <img src={`https://i.pravatar.cc/100?img=${i + 20}`} alt="user" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
-                    </div>
-                  ))}
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xs font-black text-brand-primary tracking-tighter">500+ INVESTORS</span>
-                  <span className="text-[9px] font-bold text-brand-accent uppercase tracking-widest">Global Trust Base</span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Right Side: Imagery */}
-        <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-0 bg-brand-primary overflow-hidden">
-          <motion.div 
-            initial={{ scale: 1.1, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-            className="absolute inset-0"
-          >
-            <img 
-              src="https://picsum.photos/seed/akure-luxury-land/1200/1600" 
-              className="w-full h-full object-cover opacity-60 mix-blend-luminosity brightness-75" 
-              alt="Premium Akure Land"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-bg lg:from-transparent to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute inset-0 bg-brand-primary/20 backdrop-grayscale-[0.5]"></div>
-          </motion.div>
-
-          {/* Floating Detail Card */}
-          <motion.div 
-            initial={{ x: 50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.8, duration: 1 }}
-            className="absolute bottom-16 right-16 z-20 bg-white/20 backdrop-blur-2xl p-8 border border-white/20 hidden xl:block min-w-[320px]"
-          >
-            <div className="flex flex-col gap-6">
-              <div className="flex justify-between items-start">
-                <div>
-                  <p className="text-[10px] font-black uppercase tracking-[.3em] text-brand-accent mb-2">Featured Hub</p>
-                  <h4 className="font-serif text-3xl italic text-white leading-none">Alagbaka Ext.</h4>
-                </div>
-                <div className="w-12 h-12 bg-brand-accent flex items-center justify-center rounded-full text-brand-primary rotate-12">
-                   <ShieldCheck size={28} />
-                </div>
-              </div>
-              <div className="h-px bg-white/20"></div>
-              <div className="flex justify-between items-center text-white">
-                <div>
-                   <p className="text-[9px] font-bold uppercase tracking-widest text-white/50 mb-1">Status</p>
-                   <p className="text-xl font-bold italic font-serif">100% Vetted</p>
-                </div>
-                <div className="text-right">
-                   <p className="text-[9px] font-bold uppercase tracking-widest text-white/50 mb-1">Acres Left</p>
-                   <p className="text-xl font-bold tracking-tighter">04 Plot(s)</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Scrolling Vertical Rail Text */}
-          <div className="absolute top-0 right-8 h-full flex flex-col justify-between py-24 pointer-events-none hidden lg:flex">
-             <span className="vertical-text text-[10px] font-black uppercase tracking-[.5em] text-brand-accent/40">Verified Ownership</span>
-             <span className="vertical-text text-[10px] font-black uppercase tracking-[.5em] text-brand-accent/40">Ondo State Ministry Vetted</span>
-             <span className="vertical-text text-[10px] font-black uppercase tracking-[.5em] text-brand-accent/40">Akure Premium Plots</span>
-          </div>
-        </div>
+    <section className="relative h-[90vh] min-h-[600px] flex flex-col items-center justify-center overflow-hidden pt-20">
+      {/* Background Image full width */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://picsum.photos/seed/estatehub-hero/1920/1080" 
+          alt="Hero Estate" 
+          className="w-full h-full object-cover"
+          referrerPolicy="no-referrer"
+        />
+        <div className="absolute inset-0 bg-[#152230]/60 mix-blend-multiply"></div>
       </div>
 
-      {/* Hero Foot: Stat Bar */}
-      <div className="bg-white border-t border-brand-border px-8 md:px-16 py-12 hidden lg:flex justify-between items-center relative z-20">
-        {[
-          { label: "Market Experience", value: "12 Years" },
-          { label: "Verified Area", value: "2,400+ Acres" },
-          { label: "Investor Base", value: "540 Clients" },
-          { label: "Active Districts", value: "05 Zones" }
-        ].map((stat, i) => (
-          <div key={i} className="flex flex-col gap-2">
-            <span className="text-[9px] font-bold uppercase tracking-widest text-gray-400">{stat.label}</span>
-            <span className="text-2xl font-black text-brand-primary font-serif italic">{stat.value}</span>
-          </div>
-        ))}
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-12 pb-24">
+        <motion.h1 
+          className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          Find Your Dream <br className="hidden md:block"/> Property in Akure
+        </motion.h1>
+        <motion.p 
+          className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto font-medium"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+        >
+          Discover verified lands, residential homes, and commercial spaces with ease.
+        </motion.p>
       </div>
     </section>
   );
@@ -868,29 +678,28 @@ const Hero = ({ onOpenScheduler }: { onOpenScheduler: () => void }) => {
 
 const TrustBar = () => {
   const items = [
-    { icon: <ShieldCheck size={20} />, title: "Ministry Vetted", desc: "No shadow ownership" },
-    { icon: <CheckCircle size={20} />, title: "Instant Allocation", desc: "Zero omo-onile issues" },
-    { icon: <MapPin size={20} />, title: "Growth Hubs", desc: "Prime Alagbaka & Oda" },
-    { icon: <Users size={20} />, title: "Diaspora Ready", desc: "Global trust verified" },
+    { icon: <ShieldCheck size={28} />, title: "Ministry Vetted", desc: "No shadow ownership" },
+    { icon: <CheckCircle size={28} />, title: "Instant Allocation", desc: "Zero land disputes" },
+    { icon: <MapPin size={28} />, title: "Growth Hubs", desc: "Prime Alagbaka & Oda" },
+    { icon: <Users size={28} />, title: "Diaspora Ready", desc: "Global trust verified" },
   ];
 
   return (
-    <div className="bg-brand-primary border-y border-white/10 py-12 px-8 md:px-16 flex flex-wrap justify-between gap-12 overflow-hidden relative">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(212,175,55,0.1),transparent)] pointer-events-none"></div>
+    <div className="bg-[#152230] py-16 px-6 md:px-12 flex flex-wrap justify-center md:justify-between items-start gap-12 gap-y-16">
       {items.map((item, i) => (
         <motion.div 
           key={i} 
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: i * 0.1 }}
-          className="flex gap-4 items-center relative z-10"
+          className="flex flex-col md:flex-row gap-4 items-center md:items-start text-center md:text-left basis-full sm:basis-auto"
         >
-          <div className="text-brand-accent p-2 border border-brand-accent/20 rounded-full shrink-0">
+          <div className="text-brand-accent p-3 bg-brand-accent/10 rounded-xl shrink-0">
             {item.icon}
           </div>
           <div>
-            <h4 className="text-white text-[10px] font-black uppercase tracking-[0.2em]">{item.title}</h4>
-            <p className="text-white/40 text-[9px] font-bold uppercase mt-1 tracking-widest">{item.desc}</p>
+            <h4 className="text-white text-lg font-bold mb-1">{item.title}</h4>
+            <p className="text-white/60 text-sm">{item.desc}</p>
           </div>
         </motion.div>
       ))}
@@ -904,61 +713,60 @@ const PropertyCard = ({ price, area, location, img, details }: { price: string, 
   return (
     <>
       <motion.div 
-        whileHover={{ y: -12 }}
-        initial={{ opacity: 0, scale: 0.95 }}
+        whileHover={{ y: -8 }}
+        initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        className="bg-white border border-brand-border group relative overflow-hidden transition-all h-full flex flex-col"
+        className="bg-white rounded-xl shadow-lg border border-brand-border overflow-hidden group flex flex-col h-full transition-all duration-300"
       >
-        <div className="relative aspect-[4/5] overflow-hidden bg-gray-100">
+        <div className="relative aspect-[4/3] overflow-hidden bg-gray-100 cursor-pointer" onClick={() => setIsModalOpen(true)}>
           <img 
             src={img} 
             alt={area} 
-            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[0.2] group-hover:grayscale-0" 
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
             referrerPolicy="no-referrer" 
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           
-          <div className="absolute top-6 left-6 flex flex-col gap-2">
-            <span className="bg-brand-primary text-brand-accent font-black text-[8px] uppercase px-3 py-1.5 tracking-widest self-start">
-              Verified Asset
+          <div className="absolute top-4 left-4">
+            <span className="bg-brand-accent text-white font-bold text-xs px-3 py-1.5 rounded shadow-md">
+              Verified
             </span>
           </div>
-
-          <div className="absolute bottom-6 left-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-             <button 
-                onClick={() => setIsModalOpen(true)}
-                className="w-full bg-white text-brand-primary py-4 text-[10px] font-black uppercase tracking-[0.2em] hover:bg-brand-accent hover:text-white transition-colors"
-             >
-                Explore Details
-             </button>
+          
+          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+             <h3 className="text-white font-bold text-lg leading-tight mb-1">{area}</h3>
+             <p className="text-white/80 text-sm flex items-center gap-1">
+               <MapPin size={14} /> {location}
+             </p>
           </div>
         </div>
 
-        <div className="p-8 flex-1 flex flex-col items-center text-center">
-          <h3 className="text-[10px] uppercase tracking-[0.3em] text-brand-accent font-black mb-4">{location}</h3>
-          <h2 className="font-serif text-2xl italic font-bold text-brand-primary mb-6 line-clamp-2">{area}</h2>
+        <div className="p-6 flex-1 flex flex-col bg-white">
+          <p className="text-brand-accent text-2xl font-bold mb-4">{price}</p>
           
-          <div className="w-8 h-[1px] bg-brand-border mb-6"></div>
-
-          <div className="flex flex-col gap-1 items-center">
-            <p className="text-[9px] uppercase font-bold text-gray-400 tracking-widest">Investment Value</p>
-            <p className="text-xl font-black text-brand-primary tracking-tighter">{price}</p>
+          <div className="flex-1 text-gray-500 text-sm mb-6 line-clamp-3">
+             {details.description}
           </div>
           
-          <div className="mt-8 flex gap-6 text-[9px] font-black text-gray-500 uppercase tracking-widest border-t border-brand-border pt-6 w-full justify-center">
+          <div className="mt-auto flex items-center justify-between border-t border-brand-border pt-4 text-sm font-semibold text-gray-600">
              <span className="flex items-center gap-2">
-               <Landmark size={14} className="text-brand-accent" /> {details.sqft}
+               <Landmark size={16} className="text-brand-accent" /> {details.sqft}
              </span>
              <span className="flex items-center gap-2">
-               <Home size={14} className="text-brand-accent" /> {details.type}
+               <Home size={16} className="text-brand-accent" /> {details.type}
              </span>
           </div>
+          <button 
+             onClick={() => setIsModalOpen(true)}
+             className="w-full mt-6 bg-[#f4f7f6] text-brand-primary py-3 rounded-md font-bold hover:bg-brand-accent hover:text-white transition-colors"
+          >
+             View Details
+          </button>
         </div>
       </motion.div>
 
       <PropertyModal 
-        isOpen={isModalOpen} 
+        isOpen={isModalOpen}  
         onClose={() => setIsModalOpen(false)} 
         property={{ price, area, location, img, details }} 
       />
@@ -982,14 +790,14 @@ const App = () => {
         <TrustBar />
 
         {/* Listings Section */}
-        <section id="listings" className="px-6 md:px-12 py-24 bg-white">
+        <section id="listings" className="px-6 md:px-12 py-24 bg-[#f8f9fa]">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
             <div className="max-w-xl">
-              <p className="text-brand-accent font-black text-[11px] uppercase tracking-widest mb-4">The Collection</p>
-              <h2 className="font-serif text-4xl leading-tight">Hand-Picked Opportunities in <span className="italic">Akure's Gold Zones</span></h2>
+              <p className="text-brand-accent font-bold text-sm uppercase tracking-wider mb-2">Our Properties</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-primary">Discover Hand-Picked Opportunities in Akure</h2>
             </div>
-            <button className="text-[11px] font-black uppercase tracking-widest text-brand-primary border-b-2 border-brand-accent/30 hover:border-brand-accent pb-1 transition-all">
-              Browse All Listings
+            <button className="text-sm font-bold text-brand-primary hover:text-brand-accent transition-colors flex items-center gap-1 group">
+              Browse All Listings <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
 
@@ -1038,25 +846,19 @@ const App = () => {
         </section>
 
         {/* Verification Section */}
-        <section className="px-6 md:px-12 py-32 bg-brand-bg relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none flex items-center justify-center">
-             <div className="text-[40rem] font-black italic tracking-tighter select-none">V</div>
-          </div>
-          
+        <section className="px-6 md:px-12 py-24 bg-white relative overflow-hidden text-[#152230]">
           <div className="max-w-7xl mx-auto relative z-10">
-            <div className="flex flex-col lg:flex-row items-center gap-24">
+            <div className="flex flex-col lg:flex-row items-center gap-16">
               <div className="lg:w-1/2">
-                <div className="inline-flex items-center gap-4 mb-10">
-                   <div className="w-10 h-[1px] bg-brand-accent"></div>
-                   <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-accent">The Ironclad Protocol</span>
+                <div className="mb-10">
+                   <p className="text-brand-accent font-bold text-sm uppercase tracking-wider mb-2">The Ironclad Protocol</p>
+                   <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                      The Samfall Shield Strategy
+                   </h2>
+                   <p className="text-gray-500 text-lg">We guarantee 100% peace of mind on every property purchase.</p>
                 </div>
                 
-                <h2 className="font-serif text-5xl md:text-7xl mb-12 leading-[0.95] italic">
-                   The Samfall <br />
-                   <span className="not-italic font-bold text-brand-primary">Shield Strategy</span>
-                </h2>
-                
-                <div className="space-y-12">
+                <div className="space-y-8">
                    {[
                      {
                        icon: <FileSearch size={22} />,
@@ -1080,47 +882,47 @@ const App = () => {
                        whileInView={{ opacity: 1, x: 0 }}
                        viewport={{ once: true }}
                        transition={{ delay: i * 0.2 }}
-                       className="flex gap-8 group"
+                       className="flex gap-6 group"
                      >
-                       <div className="w-16 h-16 shrink-0 bg-white border border-brand-border flex items-center justify-center text-brand-accent transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 shadow-sm">
+                       <div className="w-14 h-14 shrink-0 bg-[#f4f7f6] rounded-xl flex items-center justify-center text-brand-accent transform group-hover:-translate-y-1 transition-transform duration-300">
                          {item.icon}
                        </div>
                        <div>
-                         <h4 className="text-[11px] font-black uppercase tracking-[.25em] text-brand-primary mb-3">0{i+1} — {item.title}</h4>
-                         <p className="text-gray-500 text-sm leading-relaxed max-w-sm italic font-medium">{item.desc}</p>
+                         <h4 className="text-lg font-bold text-brand-primary mb-1">{item.title}</h4>
+                         <p className="text-gray-500 text-sm leading-relaxed max-w-sm">{item.desc}</p>
                        </div>
                      </motion.div>
                    ))}
                 </div>
               </div>
 
-              <div className="lg:w-1/2 relative group">
+              <div className="lg:w-1/2 relative group w-full">
                  <motion.div 
-                   initial={{ opacity: 0, scale: 0.9 }}
+                   initial={{ opacity: 0, scale: 0.95 }}
                    whileInView={{ opacity: 1, scale: 1 }}
                    viewport={{ once: true }}
-                   className="relative aspect-[4/5] overflow-hidden shadow-2xl"
+                   className="relative aspect-[4/5] md:aspect-square overflow-hidden rounded-2xl shadow-xl"
                  >
                     <img 
                       src="https://picsum.photos/seed/verification-akure/1200/1500" 
-                      className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 transition-all duration-1000 opacity-80" 
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                       alt="Verified Ministry Land"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-brand-primary/20 mix-blend-overlay"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#152230]/90 to-transparent"></div>
                     
-                    <div className="absolute inset-0 flex flex-col justify-end p-12">
-                       <div className="p-8 bg-white/10 backdrop-blur-3xl border border-white/20">
-                          <p className="text-[10px] font-black uppercase tracking-[.5em] text-brand-accent mb-6">Guaranteed Security</p>
-                          <h3 className="font-serif text-3xl italic text-white mb-8">Direct Access to <br /> Ministry Data.</h3>
-                          <div className="flex gap-12">
+                    <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                       <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 text-white">
+                          <p className="text-brand-accent font-bold text-xs uppercase tracking-wider mb-2">Guaranteed Security</p>
+                          <h3 className="text-2xl font-bold mb-6">Direct Access to Ministry Data</h3>
+                          <div className="flex gap-8">
                              <div>
-                                <p className="text-[9px] font-black uppercase tracking-widest text-brand-accent mb-1">State</p>
-                                <p className="text-xl font-black text-white italic font-serif">Ondo</p>
+                                <p className="text-brand-accent text-xs font-bold uppercase tracking-wider mb-1">State</p>
+                                <p className="text-lg font-bold">Ondo</p>
                              </div>
                              <div>
-                                <p className="text-[9px] font-black uppercase tracking-widest text-brand-accent mb-1">Status</p>
-                                <p className="text-xl font-black text-white italic font-serif">Verified</p>
+                                <p className="text-brand-accent text-xs font-bold uppercase tracking-wider mb-1">Status</p>
+                                <p className="text-lg font-bold">Verified</p>
                              </div>
                           </div>
                        </div>
@@ -1130,11 +932,11 @@ const App = () => {
                  <motion.div 
                     initial={{ x: 20, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
-                    className="absolute -top-10 -right-10 bg-white p-8 max-w-[240px] border border-brand-border hidden xl:block shadow-2xl"
+                    className="absolute -top-6 -right-6 bg-white p-6 rounded-xl border border-brand-border hidden xl:block shadow-2xl max-w-[240px]"
                  >
-                    <ShieldCheck className="text-brand-accent mb-4" size={32} />
-                    <p className="text-[10px] font-black uppercase tracking-widest text-brand-primary mb-2">Lawful Compliance</p>
-                    <p className="text-[10px] text-gray-500 italic font-medium leading-relaxed">
+                    <ShieldCheck className="text-brand-accent mb-3" size={28} />
+                    <p className="text-sm font-bold text-brand-primary mb-2">Lawful Compliance</p>
+                    <p className="text-xs text-gray-500 leading-relaxed">
                        Every Samfall plot is pre-vetted against the state regional masterplan to prevent future encroachment issues.
                     </p>
                  </motion.div>
@@ -1143,80 +945,80 @@ const App = () => {
           </div>
         </section>
 
-        <TestimonialSlider />
+        <TestimonialSection />
 
         {/* Process Section */}
-        <section className="px-6 md:px-12 py-32 bg-white border-t border-brand-border">
-          <div className="text-center max-w-3xl mx-auto mb-24">
-            <h2 className="font-serif text-5xl md:text-6xl italic mb-6">A Seamless <span className="not-italic font-bold">Client Journey</span></h2>
-            <p className="text-[10px] font-black uppercase text-brand-accent tracking-[.6em]">The Samfall Way</p>
+        <section className="px-6 md:px-12 py-24 bg-[#f4f7f6] border-t border-brand-border">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <p className="text-brand-accent font-bold text-sm uppercase tracking-wider mb-2">The Samfall Way</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-primary">A Seamless Client Journey</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-20 relative max-w-6xl mx-auto">
-            <div className="absolute top-10 left-0 w-full h-[1px] bg-brand-border hidden md:block z-0"></div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative max-w-6xl mx-auto">
+            <div className="absolute top-[4.5rem] left-0 w-full h-[2px] bg-brand-border hidden md:block z-0"></div>
             {[
               { num: "01", title: "Select", desc: "Curated, pre-vetted Akure collections tailored to your legacy goals." },
               { num: "02", title: "Inspect", desc: "Private, expert-led site visits. Experience the terrain before you commit." },
               { num: "03", title: "Secure", desc: "Instant physical allocation & Ministry-backed documentation. Pure security." },
             ].map((step, i) => (
-              <div key={i} className="flex flex-col items-center text-center relative z-10 transition-transform hover:-translate-y-2">
-                <div className="w-20 h-20 bg-brand-bg border-4 border-white shadow-xl rounded-full flex items-center justify-center text-brand-primary font-serif italic text-3xl mb-8">
+              <div key={i} className="flex flex-col items-center text-center relative z-10 transition-transform hover:-translate-y-2 group">
+                <div className="w-24 h-24 bg-white border-4 border-brand-border group-hover:border-brand-accent shadow-md rounded-full flex items-center justify-center text-brand-primary font-bold text-3xl mb-6 transition-colors">
                   {step.num}
                 </div>
-                <h3 className="font-serif italic text-3xl mb-6">{step.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed font-medium italic opacity-80">{step.desc}</p>
+                <h3 className="font-bold text-2xl text-brand-primary mb-4">{step.title}</h3>
+                <p className="text-gray-500 font-medium text-base leading-relaxed px-4">{step.desc}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* Call to Action */}
-        <section id="contact" className="px-6 md:px-12 py-32 bg-brand-bg">
-          <div className="bg-brand-primary p-12 md:p-32 text-center relative overflow-hidden group">
-             <div className="absolute inset-0 bg-[url('https://picsum.photos/seed/lux-akure/1920/1080')] bg-cover bg-center opacity-10 mix-blend-overlay group-hover:scale-105 transition-transform duration-[5s]"></div>
+        <section id="contact" className="px-6 md:px-12 py-24 bg-white">
+          <div className="bg-[#152230] rounded-2xl p-10 md:p-20 text-center relative overflow-hidden shadow-2xl">
+             <div className="absolute inset-0 bg-[url('https://picsum.photos/seed/lux-akure/1920/1080')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
              <div className="relative z-10 flex flex-col items-center">
-               <h2 className="font-serif text-5xl md:text-8xl text-white mb-10 leading-[0.95] italic">
-                 Secure Your <br />
-                 <span className="not-italic font-bold text-brand-accent">Next Legacy.</span>
+               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                 Secure Your Next <br />
+                 <span className="text-brand-accent">Legacy Asset</span>
                </h2>
-               <p className="text-white/60 text-lg md:text-xl mb-16 max-w-2xl font-medium italic">
-                 Don't wait for the market to move. Secure high-growth Akure land with Ministry-backed verification today. Consult with our premium asset managers.
+               <p className="text-white/80 text-lg mb-12 max-w-xl">
+                 Don't wait for the market to move. Secure high-growth Akure land with Ministry-backed verification today.
                </p>
-               <div className="flex flex-col md:flex-row gap-8">
+               <div className="flex flex-col md:flex-row gap-6 w-full md:w-auto">
                  <button 
                   onClick={() => setIsSchedulerOpen(true)}
-                  className="bg-brand-accent text-brand-primary px-12 py-6 text-xs font-black uppercase tracking-[0.2em] shadow-2xl hover:scale-105 transition-transform">
-                   Inquire & Book Consultation
+                  className="bg-brand-accent text-white px-10 py-5 rounded-md font-bold text-sm uppercase tracking-wider hover:bg-[#20A960] transition-colors shadow-lg">
+                   Book Consultation
                  </button>
                  <a 
                    href={WHATSAPP_LINK}
-                   className="border border-brand-accent/30 text-brand-accent px-12 py-6 text-xs font-black uppercase tracking-[0.2em] hover:bg-brand-accent hover:text-brand-primary transition-all flex items-center justify-center gap-3 backdrop-blur-sm"
+                   className="bg-white/10 border border-white/20 text-white px-10 py-5 rounded-md font-bold text-sm uppercase tracking-wider hover:bg-white/20 transition-all flex items-center justify-center gap-2 backdrop-blur-sm"
                  >
-                   <MessageCircle size={18} /> Direct WhatsApp
+                   <MessageCircle size={18} /> WhatsApp
                  </a>
                </div>
              </div>
-             <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-brand-accent opacity-5 rounded-full blur-[120px]"></div>
+             <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-brand-accent opacity-10 rounded-full blur-[100px]"></div>
           </div>
         </section>
       </main>
 
-      <footer className="bg-brand-primary border-t border-white/5 pt-24 pb-16 px-8 md:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-20 mb-24">
-          <div className="col-span-1 md:col-span-1 flex flex-col gap-6">
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-brand-accent flex items-center justify-center rounded-xs transform -rotate-3">
-                <span className="text-brand-primary font-serif text-2xl font-black italic">S</span>
+      <footer className="bg-[#152230] border-t border-white/5 pt-20 pb-12 px-6 md:px-12 text-white">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div className="col-span-1 md:col-span-1 flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-brand-accent flex items-center justify-center rounded-lg font-bold text-white">
+                <Home size={24} />
               </div>
-              <h1 className="text-white text-base font-black tracking-[0.2em] uppercase leading-none">{APP_NAME}</h1>
+              <h1 className="text-xl font-bold tracking-tight leading-none">{APP_NAME}</h1>
             </div>
-            <p className="text-white/40 text-[10px] leading-relaxed uppercase font-bold tracking-[0.3em] mt-2">
+            <p className="text-white/60 text-sm leading-relaxed mt-2">
               Legacy Estate Consulting • Akure, Ondo State. Nigeria.
             </p>
           </div>
           
           <div>
-            <h4 className="text-brand-accent text-[9px] font-black uppercase tracking-[0.5em] mb-10">Access Collection</h4>
-            <ul className="text-white/40 text-[10px] font-black uppercase tracking-[0.2em] space-y-6">
+            <h4 className="text-brand-accent text-sm font-bold uppercase tracking-wider mb-6">Access Collection</h4>
+            <ul className="text-white/70 text-sm space-y-4 font-medium">
               <li><a href="#listings" className="hover:text-brand-accent transition-colors">Vetted Listings</a></li>
               <li><button onClick={() => setIsSchedulerOpen(true)} className="hover:text-brand-accent transition-colors">Schedule Visit</button></li>
               <li><a href="#process" className="hover:text-brand-accent transition-colors">The Shield Protocol</a></li>
@@ -1225,33 +1027,33 @@ const App = () => {
           </div>
 
           <div>
-            <h4 className="text-brand-accent text-[9px] font-black uppercase tracking-[0.5em] mb-10">Direct Contact</h4>
-            <ul className="text-white/40 text-[10px] font-black uppercase tracking-[0.2em] space-y-6">
-              <li className="flex items-center gap-4 group transition-colors hover:text-brand-accent"><Phone size={14} className="text-brand-accent" /> +234 800 000 0000</li>
-              <li className="flex items-center gap-4 group transition-colors hover:text-brand-accent"><MessageCircle size={14} className="text-brand-accent" /> <a href={WHATSAPP_LINK}>Official WhatsApp</a></li>
+            <h4 className="text-brand-accent text-sm font-bold uppercase tracking-wider mb-6">Direct Contact</h4>
+            <ul className="text-white/70 text-sm space-y-4 font-medium">
+              <li className="flex items-center gap-3 group transition-colors hover:text-brand-accent"><Phone size={16} className="text-brand-accent" /> +234 800 000 0000</li>
+              <li className="flex items-center gap-3 group transition-colors hover:text-brand-accent"><MessageCircle size={16} className="text-brand-accent" /> <a href={WHATSAPP_LINK}>Official WhatsApp</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-brand-accent text-[9px] font-black uppercase tracking-[0.5em] mb-10">Search Index</h4>
-            <div className="flex bg-white/5 border border-white/10 p-1 group">
+            <h4 className="text-brand-accent text-sm font-bold uppercase tracking-wider mb-6">Search Index</h4>
+            <div className="flex bg-white/5 border border-white/10 rounded-md overflow-hidden focus-within:ring-2 focus-within:ring-brand-accent/30 transition-all">
               <input 
                 type="text" 
-                placeholder="BY ZONE..." 
-                className="bg-transparent text-[10px] p-4 flex-1 focus:outline-none text-white font-black uppercase tracking-[0.2em]"
+                placeholder="Search zones..." 
+                className="bg-transparent text-sm p-4 flex-1 focus:outline-none text-white"
               />
-              <button className="bg-brand-accent text-brand-primary px-6 group-hover:brightness-110">
+              <button className="bg-brand-accent text-white px-6 hover:bg-[#20A960] transition-colors flex items-center">
                 <ArrowRight size={18} />
               </button>
             </div>
           </div>
         </div>
         
-        <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-white/5 gap-8">
-          <p className="text-white/20 text-[8px] font-black uppercase tracking-[0.6em]">
-            © {new Date().getFullYear()} {APP_NAME} Estate Consultant • Akure Excellence
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 gap-6">
+          <p className="text-white/50 text-sm">
+            © {new Date().getFullYear()} {APP_NAME} Estate Consultant. All Rights Reserved.
           </p>
-          <div className="flex gap-12 text-[9px] font-black uppercase tracking-[0.4em] text-white/20">
+          <div className="flex gap-8 text-sm font-medium text-white/50">
             <span className="hover:text-brand-accent cursor-pointer transition-colors">Instagram</span>
             <span className="hover:text-brand-accent cursor-pointer transition-colors">LinkedIn</span>
             <span className="hover:text-brand-accent cursor-pointer transition-colors">Twitter</span>

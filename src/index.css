@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Poppins", ui-sans-serif, system-ui, sans-serif;
 
-  --color-brand-primary: #0A2E24;
-  --color-brand-accent: #D4AF37;
-  --color-brand-bg: #FDFCFB;
-  --color-brand-border: #EEECE9;
+  --color-brand-primary: #152230;
+  --color-brand-accent: #2cbd6d;
+  --color-brand-bg: #f8f9fa;
+  --color-brand-border: #eaedf1;
   --color-brand-whatsapp: #25D366;
   
   @keyframes pan-slow {
-    0% { transform: scale(1.5) translateX(-5%); }
-    50% { transform: scale(1.5) translateX(5%); }
-    100% { transform: scale(1.5) translateX(-5%); }
+    0% { transform: scale(1.1) translateX(0); }
+    50% { transform: scale(1.15) translateX(2%); }
+    100% { transform: scale(1.1) translateX(0); }
   }
 
   @keyframes slide-up {
@@ -23,19 +23,22 @@
   }
 
   @keyframes scale-in {
-    from { transform: scale(0.9); opacity: 0; }
+    from { transform: scale(0.95); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
   }
 }
 
 @layer base {
   body {
-    @apply bg-brand-bg text-[#1A1A1A] font-sans antialiased;
+    @apply bg-brand-bg text-[#424d5c] font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-brand-primary;
   }
 }
 
 .selection-gold::selection {
-  background-color: #D4AF37;
+  background-color: #2cbd6d;
   color: white;
 }
 
